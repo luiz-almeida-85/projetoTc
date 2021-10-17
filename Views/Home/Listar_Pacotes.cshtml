@@ -1,0 +1,43 @@
+@using Microsoft.AspNetCore.Http;
+@model IEnumerable<Pacotes>
+@{
+    ViewData["Title"] = "Listagem de Pacotes";
+}
+<main class="fundo-color" style="min-height: 100vh;">
+<div class="usuarios-content">  
+<div>
+    <div class="icone-titulo"><img class="icones-content" src="~/img/icone-listagempacotes.png"><h3 class="titulos">LISTAGEM DE PACOTES</h3></div>
+<p class="paragrafos">A lista com todos as pautas cadastradas no sistema será exibida abaixo. Utilize os botões da direita para realizar a exclusão ou alteração dos pacotes</p>
+<p class="paragrafos">AVISO: Tenha cuidado ao excluir uma pauta. Uma vez excluídos, os dados do registo relacionados ao pacote não poderão ser recuperados.</p>
+<table class="table">
+  <thead class="thead-dark">
+      <tr>
+          <th scioe="col">ID</th>
+          <th scope="col">ASSUNTO</th>
+          <!-- <th scope="col">NOTICIA</th>
+     <th scope="col">VEREADOR</th>
+     <th scope="col">REFERENCIA</th>
+     <th scope="col">DATA</th> -->
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+      </tr>
+  </thead>
+  <tbody>
+     @foreach(Pacotes p in Model){
+      <tr>
+          <th scope="row">@p.id</th>
+          <td>@p.assunto</td>
+          <!-- <td>@p.noticia</td>
+     <td>@p.vereador</td>
+     <td>@p.referencia</td>
+     <td>@p.data</td> -->
+          <td><a href="/Home/Alterar_Pacote?id=@p.id"><img class="icones-content" src="~/img/icone-edit.png"></a></td>
+          <td><a href="/Home/Excluir_Pacote?id=@p.id"><img class="icones-content" src="~/img/icone-close2.png"></a></td>
+      </tr>} 
+  </tbody>
+</table>
+
+</div>
+</main>

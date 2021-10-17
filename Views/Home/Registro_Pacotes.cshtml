@@ -1,0 +1,49 @@
+@using Microsoft.AspNetCore.Http;
+@model Pacotes
+
+@{
+    ViewData["Title"] = "Registro de Pauta";
+}
+
+<main class="fundo-color" style="min-height: 100vh;">
+    <div class="cadastro-content">  
+    <div>
+        <div class="icone-titulo"><img class="icones-content" src="~/img/icone-cadastro-pauta.png"><h3 class="titulos">REGISTRO DE PAUTA</h3></div>
+    <form class="form-style" action="Registro_Pacotes" method="POST">
+    
+    <label class="label-style" asp-for="assunto">Assunto:</label>    
+    <input class="input-style" asp-for="assunto" name="assunto" required placeholder="Nome do Assunto" maxlength="20">
+    
+    <label class="label-style" asp-for="noticia">Noticia:</label>    
+    <input class="input-style" asp-for="noticia" name="noticia" required placeholder="noticia">
+    
+    <label class="label-style" asp-for="vereador">Vereador:</label>    
+    <input class="input-style" asp-for="vereador" name="vereador" required placeholder="vereador">
+    
+    <label class="label-style" asp-for="referencia">Referencia:</label>    
+    <input class="input-style" asp-for="referencia" name="referencia" required placeholder="referencia" maxlength="10">
+
+    <label class="label-style" asp-for="data">Data::</label>    
+    <input class="input-style" asp-for="data"  name="data" required placeholder="dd/mm/dd" maxlength="10">
+
+    @if(Context.Session.GetInt32("id_usuarios") != null)
+                {
+                ViewBag.id = @Context.Session.GetInt32("id_usuarios");
+                }  
+    <input class="input-style" type="hidden" asp-for="usuario"  name="usuario" value="@ViewBag.id" required placeholder="ID de usuário">
+    
+    <input type="submit" value="Registrar" class="input-button">
+    </form>
+     
+     <p class="mensagem-style">@ViewBag.Cadastro</p>
+</div>
+
+    <div class="bloco-texto paragrafos">
+        <h3 class="titulos">REGISTRO DA PAUTA</h3>
+        <p>Preecha os dados da pauta utilizando o formulário ao lado e use o botão "Registrar" para salva-lo no sistema.</p>
+    </div>
+
+</div>
+
+
+</main>

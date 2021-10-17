@@ -1,0 +1,48 @@
+@using Microsoft.AspNetCore.Http;
+@model Pacotes
+
+@{
+    ViewData["Title"] = "Alteração de Pauta";
+}
+
+<main class="fundo-color" style="min-height: 100vh;">
+
+    
+    <div class="cadastro-content">  
+    <div>
+        <div class="icone-titulo"><img class="icones-content" src="~/img/icone-alteracaopacotes.png"><h3 class="titulos">ALTERAÇÃO DE DADOS DO PACOTE</h3></div>
+    <form class="form-style" action="Alterar_Pacote" method="POST">
+    
+    <label class="label-style" asp-for="assunto">Assunto:</label>    
+    <input class="input-style" asp-for="assunto" name="assunto" value="@Model.assunto" required>
+    
+    <label class="label-style" asp-for="noticia">Notícia:</label>    
+    <input class="input-style" asp-for="noticia" name="noticia" value="@Model.noticia" required>
+    
+    <label class="label-style" asp-for="vereador">Vereador:</label>    
+    <input class="input-style" asp-for="vereador" name="vereador" value="@Model.vereador" required>
+    
+    <label class="label-style" asp-for="referencia">Referência:</label> 
+    <input class="input-style" asp-for="referencia" name="referencia" value="@Model.referencia" required>
+
+    <label class="label-style" asp-for="data">Data:</label> 
+    <input class="input-style" asp-for="data" name="data" value="@Model.data" required> 
+
+   
+    <input class="input-style" asp-for="id" type="hidden" value="@Model.id" name="id" required>
+    
+    <input type="submit" value="Alterar" class="input-button">
+    </form>
+
+</div>
+
+    <div class="bloco-texto paragrafos">
+        <h3 class="titulos">DADOS DA PAUTA</h3>
+        <p>Modifique os dados da pauta ao lado apagando os antigos e inserindo os novos.</p>
+        <p>Após conferir se está tudo correto, use o botão "Alterar" para concluir a alteração.</p>
+    </div>
+
+</div>
+
+
+</main>
